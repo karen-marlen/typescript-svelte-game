@@ -25,7 +25,14 @@ export class GameController {
 
     private velocity = 0;
 
-    constructor(public readonly height = 800, public readonly width = 400) {
+    constructor(
+        public readonly height = 800, 
+        public readonly width = 400,
+        public readonly pipeWidth = 50,
+        public readonly pipeGap = 150,
+        public readonly minTopForTopPipe = 70,
+        public readonly maxTopForTopPipe = 350
+    ) {
 
     }
 
