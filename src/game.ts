@@ -34,12 +34,16 @@ export class GameController {
         public readonly pipeGap = 150,
         public readonly minTopForTopPipe = 70,
         public readonly maxTopForTopPipe = 350
-    ) {
-
-    }
+    ) {}
 
     public newGame() {
+        let firstPipe = this.createPipe(true);
+        let secondPipe = this.createPipe(false);
+
+
         this.frame = {
+            firstPipe,
+            secondPipe,
             score: 0,
             width: this.width,
             height: this.height,
@@ -62,14 +66,14 @@ export class GameController {
 
         return {
             topPipe: {
-                top: 0;
+                top: 0,
                 height,
             },
             bottomPipe: {
                 top: height + this.pipeGap,
                 height: this.height,
             },
-            left: this.width + this.pipeWidth,
+            left: this.width - this.pipeWidth,
             width: this.pipeWidth,
             show,
         };
