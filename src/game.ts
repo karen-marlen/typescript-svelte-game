@@ -56,4 +56,22 @@ export class GameController {
             (this.maxTopForTopPipe - this.minTopForTopPipe) * Math.random()
         );
     }
+
+    private createPipe(show: boolean): PipePair {
+        const height = this.randomYForTopPipe();
+
+        return {
+            topPipe: {
+                top: 0;
+                height,
+            },
+            bottomPipe: {
+                top: height + this.pipeGap,
+                height: this.height,
+            },
+            left: this.width + this.pipeWidth,
+            width: this.pipeWidth,
+            show,
+        };
+    }
 }
