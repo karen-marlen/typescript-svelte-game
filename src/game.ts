@@ -1,4 +1,6 @@
 export interface Frame {
+    firstPipe: PipePair;
+    secondPipe: PipePair;
     gameOver: boolean;
     gameSarted: boolean;
     width: number;
@@ -48,4 +50,10 @@ export class GameController {
         return this.frame;
     }
 
+    private randomYForTopPipe(): number {
+        return (
+            this.minTopForTopPipe +
+            (this.maxTopForTopPipe - this.minTopForTopPipe) * Math.random()
+        );
+    }
 }
